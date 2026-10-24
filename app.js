@@ -7,10 +7,6 @@ const EXAM_CENTER_URL = "https://keyraddiin18-prog.github.io/KEYRADDIIN-EXAM-CEN
 const TELEGRAM_URL = "https://t.me/Keyraddiinmedia";
 const YOUTUBE_URL = "https://youtube.com/@keyraddiin-j2b";
 const WEBSITE_URL = "https://keyraddiin-media.onrender.com";
-
-// ==========================================
-// MURTEESSA: Linkii Apps Script (/exec) 
-// ==========================================
 const BACKEND_URL = "https://script.google.com/macros/s/AKfycbyWRY_YvoEzdvNABg-I9N6jadW5JqleX9c_Jj688sEnYsTUhIUfgBCUu8Qm9VobD04fYQ/exec"; 
 
 const grades = ["Grade 7", "Grade 8", "Grade 9", "Grade 10", "Grade 11", "Grade 12"];
@@ -20,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initTheme();
     bindNavigation();
     renderHome();
+    registerServiceWorker();
 });
 
 // --- THEME LOGIC ---
@@ -42,18 +39,15 @@ function initTheme() {
     }
 }
 
-// --- NAVIGATION FIX ---
+// --- NAVIGATION ---
 function bindNavigation() {
     const navItems = document.querySelectorAll(".nav-item");
     
     navItems.forEach(item => {
         item.addEventListener("click", () => {
-            // 1. Remove active class from all
             navItems.forEach(nav => nav.classList.remove("active"));
-            // 2. Add active class to clicked
             item.classList.add("active");
             
-            // 3. Route to the correct view
             const page = item.getAttribute("data-page");
             switch(page) {
                 case "home": renderHome(); break;
@@ -63,6 +57,7 @@ function bindNavigation() {
                 case "settings": showSettingsScreen(); break;
                 default: renderHome();
             }
+            window.scrollTo(0, 0); // Scroll to top on page change
         });
     });
 }
@@ -208,12 +203,12 @@ function showAIScreen() {
         chatContainer.scrollTop = chatContainer.scrollHeight;
 
         if(!BACKEND_URL || BACKEND_URL.includes("...")) {
-            chatContainer.innerHTML += `<div class="message bot-message" style="color: #DC2626;">System Notice: BACKEND_URL hin galchin. Maaloo linkii Apps Script keessatti galchi.</div>`;
+            chatContainer.innerHTML += `<div class="message bot-message" style="color: #DC2626;">System Notice: BACKEND_URL missing.</div>`;
             return;
         }
 
         const loadingId = "loading-" + Date.now();
-        chatContainer.innerHTML += `<div class="message bot-message" id="${loadingId}">AI yaadaa jira... ⏳</div>`;
+        chatContainer.innerHTML += `<div class="message bot-message" id="${loadingId}">AI thinking... ⏳</div>`;
         chatContainer.scrollTop = chatContainer.scrollHeight;
 
         try {
@@ -310,7 +305,7 @@ function showSettingsScreen() {
             <div class="feature-card">
                 <div class="feature-text">
                     <strong>App Version</strong>
-                    <small>v2.5 Professional</small>
+                    <small>v3.0 Professional</small>
                 </div>
             </div>
             <button class="feature-card" onclick="clearAppData()" style="border-color: #DC2626; color: #DC2626;">
@@ -337,16 +332,13 @@ function escapeHTML(str) {
     }[tag] || tag));
 }
 
-
 // --- SERVICE WORKER REGISTRATION ---
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./service-worker.js')
-            .then(registration => {
-                console.log('Service Worker galmeeffameera:', registration.scope);
-            })
-            .catch(err => {
-                console.log('Service Worker galmeessuu hin dandeenye:', err);
-            });
-    });
+function registerServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./service-worker.js')
+                .then(registration => console.log('SW registered:', registration.scope))
+                .catch(err => console.log('SW registration failed:', err));
+        });
+    }
 }
