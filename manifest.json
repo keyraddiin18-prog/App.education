@@ -1,16 +1,21 @@
 {
   "name": "KEYRADDIIN EDUCATION APP",
   "short_name": "KEYRADDIIN",
-  "description": "KEYRADDIIN EDUCATION APP - Central education, exam information and student services platform.",
-  "start_url": "/KEYRADDIIN-EDUCATION-APP/",
-  "scope": "/KEYRADDIIN-EDUCATION-APP/",
+  "description": "Professional Educational Platform for Ethiopian Students.",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
-  "orientation": "portrait",
-  "background_color": "#ffffff",
-  "theme_color": "#0d47a1",
+  "background_color": "#121212",
+  "theme_color": "#1a237e",
   "icons": [
     {
-      "src": "/KEYRADDIIN-EDUCATION-APP/assets/logo.png",
+      "src": "assets/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/logo.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
