@@ -9,10 +9,9 @@ const YOUTUBE_URL = "https://youtube.com/@keyraddiin-j2b";
 const WEBSITE_URL = "https://keyraddiin-media.onrender.com";
 
 // ==========================================
-// MURTEESSA: Linkii Apps Script (/exec) GUUTUU 
-// (Suuraa kee irraa fudhameera)
+// MURTEESSA: Linkii Apps Script (/exec) 
 // ==========================================
-const BACKEND_URL = "https://script.google.com/macros/s/AKfycbwWRY_YvoEzdvNABg-19N6jadW5JqleX9c-_jJ68sEnYsTUhUfgbCUu8Qm9VobD04FYQ/exec"; 
+const BACKEND_URL = "https://script.google.com/macros/s/AKfycbyWRY_YvoEzdvNABg-I9N6jadW5JqleX9c_Jj688sEnYsTUhIUfgBCUu8Qm9VobD04fYQ/exec"; 
 
 const grades = ["Grade 7", "Grade 8", "Grade 9", "Grade 10", "Grade 11", "Grade 12"];
 const mainContent = document.getElementById("appMain");

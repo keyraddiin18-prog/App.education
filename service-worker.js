@@ -1,4 +1,4 @@
-const CACHE_NAME = "keyraddiin-education-v6"; // Haaraa taasisuu hin dagatin
+const CACHE_NAME = "keyraddiin-education-v10"; // Haaraa taasisuu hin dagatin
 
 const APP_FILES = [
     "./",
