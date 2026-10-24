@@ -1,11 +1,13 @@
-const CACHE_NAME = "keyraddiin-education-v15";
+const CACHE_NAME = "keyraddiin-education-v16"; // v16 godheera
 
 const APP_FILES = [
     "./",
     "./index.html",
     "./style.css",
     "./app.js",
-    "./manifest.json"
+    "./manifest.json",
+    "./icon-192.png",  // Suuraa haaraa
+    "./icon-512.png"   // Suuraa haaraa
 ];
 
 self.addEventListener("install", function (event) {
