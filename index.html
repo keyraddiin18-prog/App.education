@@ -2,105 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="KEYRADDIIN EDUCATION APP - Central education, exam information and student services platform.">
-    <meta name="theme-color" content="#1a237e">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    
-    <link rel="icon" type="image/png" href="assets/logo.png">
-    <link rel="apple-touch-icon" href="assets/logo.png">
-    <link rel="manifest" href="manifest.json">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#172554">
     <title>KEYRADDIIN EDUCATION APP</title>
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <!-- HEADER -->
     <header class="app-header">
-        <div class="brand">
-            <div class="brand-icon">K</div>
-            <div>
+        <div class="brand-container">
+            <img src="assets/logo.svg" alt="KEYRADDIIN Logo" class="brand-logo" onerror="this.style.display='none'">
+            <div class="brand-text">
                 <h1>KEYRADDIIN</h1>
                 <span>EDUCATION APP</span>
             </div>
         </div>
         <div class="header-actions">
-            <button class="icon-btn" id="themeToggle" aria-label="Toggle Dark Mode">🌙</button>
-            <button class="icon-btn" id="profileButton" aria-label="Profile">👤</button>
+            <button id="themeToggle" class="icon-btn" aria-label="Toggle Theme">🌙</button>
+            <button id="profileButton" class="icon-btn" aria-label="Profile">👤</button>
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
+    <!-- MAIN CONTENT AREA -->
     <main id="appMain">
-        <!-- HOME VIEW (Default) -->
-        <section id="homeView">
-            <div class="welcome-section">
-                <p style="font-size: 12px; margin-bottom: 5px;">Welcome to</p>
-                <h2>KEYRADDIIN EDUCATION APP</h2>
-                <p>Your central place for education, exam information and student services.</p>
-            </div>
-
-            <div class="section">
-                <div class="section-title">
-                    <h2>Your Grade</h2>
-                    <span>7–12</span>
-                </div>
-                <div class="grade-grid">
-                    <button class="grade-card" data-grade="7"><strong>Grade 7</strong><span>View Info</span></button>
-                    <button class="grade-card" data-grade="8"><strong>Grade 8</strong><span>View Info</span></button>
-                    <button class="grade-card" data-grade="9"><strong>Grade 9</strong><span>View Info</span></button>
-                    <button class="grade-card" data-grade="10"><strong>Grade 10</strong><span>View Info</span></button>
-                    <button class="grade-card" data-grade="11"><strong>Grade 11</strong><span>View Info</span></button>
-                    <button class="grade-card" data-grade="12"><strong>Grade 12</strong><span>View Info</span></button>
-                </div>
-            </div>
-
-            <div class="section">
-                <div class="section-title">
-                    <h2>Quick Access</h2>
-                </div>
-                <div class="feature-list">
-                    <button class="feature-card" id="examCenterButton">
-                        <span class="feature-icon">📝</span>
-                        <span><strong>Exam Center</strong><small>Find and take available exams</small></span>
-                        <b>›</b>
-                    </button>
-                    <button class="feature-card" id="examInformationButton">
-                        <span class="feature-icon">📋</span>
-                        <span><strong>Exam Information</strong><small>Registration and exam details</small></span>
-                        <b>›</b>
-                    </button>
-                    <button class="feature-card" id="announcementsButton">
-                        <span class="feature-icon">📢</span>
-                        <span><strong>Announcements</strong><small>Latest KEYRADDIIN updates</small></span>
-                        <b>›</b>
-                    </button>
-                </div>
-            </div>
-        </section>
+        <!-- Dynamic content loads here -->
     </main>
 
     <!-- BOTTOM NAVIGATION -->
-    <nav class="bottom-navigation">
-        <button class="nav-item active" data-page="home"><span>⌂</span><small>Home</small></button>
-        <button class="nav-item" data-page="exams"><span>📝</span><small>Exams</small></button>
-        <button class="nav-item" data-page="ai"><span>🤖</span><small>AI Tutor</small></button>
-        <button class="nav-item" data-page="planner"><span>📅</span><small>Planner</small></button>
-        <button class="nav-item" data-page="settings"><span>⚙️</span><small>Settings</small></button>
+    <nav class="bottom-nav">
+        <button class="nav-item active" data-page="home">
+            <span class="nav-icon">🏠</span>
+            <span class="nav-label">Home</span>
+        </button>
+        <button class="nav-item" data-page="exams">
+            <span class="nav-icon">📝</span>
+            <span class="nav-label">Exams</span>
+        </button>
+        <button class="nav-item" data-page="ai">
+            <span class="nav-icon">🤖</span>
+            <span class="nav-label">AI Tutor</span>
+        </button>
+        <button class="nav-item" data-page="planner">
+            <span class="nav-icon">📅</span>
+            <span class="nav-label">Planner</span>
+        </button>
+        <button class="nav-item" data-page="settings">
+            <span class="nav-icon">⚙️</span>
+            <span class="nav-label">Settings</span>
+        </button>
     </nav>
 
     <script src="app.js"></script>
-    <script>
-        if ("serviceWorker" in navigator) {
-            window.addEventListener("load", () => {
-                navigator.serviceWorker.register("service-worker.js")
-                    .then(() => console.log("KEYRADDIIN is ready."))
-                    .catch(err => console.log("SW Error:", err));
-            });
-        }
-    </script>
 </body>
 </html>
