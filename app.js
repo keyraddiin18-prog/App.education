@@ -336,3 +336,17 @@ function escapeHTML(str) {
         '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
     }[tag] || tag));
 }
+
+
+// --- SERVICE WORKER REGISTRATION ---
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js')
+            .then(registration => {
+                console.log('Service Worker galmeeffameera:', registration.scope);
+            })
+            .catch(err => {
+                console.log('Service Worker galmeessuu hin dandeenye:', err);
+            });
+    });
+}

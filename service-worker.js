@@ -1,12 +1,12 @@
-const CACHE_NAME = "keyraddiin-education-v10"; // Haaraa taasisuu hin dagatin
+const CACHE_NAME = "keyraddiin-education-v13"; // v13 godhi (haaraa taasisuu)
 
 const APP_FILES = [
     "./",
     "./index.html",
     "./style.css",
     "./app.js",
-    "./manifest.json",
-    "./assets/logo.svg" // Yoo suuraa PNG fayyadamte asitti jijjiiri
+    "./manifest.json"
+    // ./assets/logo.svg asii haqeera sababa qubee "K" fayyadamuuf
 ];
 
 self.addEventListener("install", function (event) {
