@@ -8,8 +8,11 @@ const TELEGRAM_URL = "https://t.me/Keyraddiinmedia";
 const YOUTUBE_URL = "https://youtube.com/@keyraddiin-j2b";
 const WEBSITE_URL = "https://keyraddiin-media.onrender.com";
 
-// MURTEESSA: Apps Script URL kee asitti kaa'i
-const BACKEND_URL = "https://script.google.com/macros/s/AKfycbwWRY_YvoEzdvNABg.../exec"; 
+// ==========================================
+// MURTEESSA: Linkii Apps Script (/exec) GUUTUU 
+// (Suuraa kee irraa fudhameera)
+// ==========================================
+const BACKEND_URL = "https://script.google.com/macros/s/AKfycbwWRY_YvoEzdvNABg-19N6jadW5JqleX9c-_jJ68sEnYsTUhUfgbCUu8Qm9VobD04FYQ/exec"; 
 
 const grades = ["Grade 7", "Grade 8", "Grade 9", "Grade 10", "Grade 11", "Grade 12"];
 const mainContent = document.getElementById("appMain");
@@ -206,7 +209,7 @@ function showAIScreen() {
         chatContainer.scrollTop = chatContainer.scrollHeight;
 
         if(!BACKEND_URL || BACKEND_URL.includes("...")) {
-            chatContainer.innerHTML += `<div class="message bot-message" style="color: #DC2626;">System Notice: BACKEND_URL hin galchin.</div>`;
+            chatContainer.innerHTML += `<div class="message bot-message" style="color: #DC2626;">System Notice: BACKEND_URL hin galchin. Maaloo linkii Apps Script keessatti galchi.</div>`;
             return;
         }
 
@@ -229,7 +232,7 @@ function showAIScreen() {
             chatContainer.scrollTop = chatContainer.scrollHeight;
         } catch (err) {
             document.getElementById(loadingId)?.remove();
-            chatContainer.innerHTML += `<div class="message bot-message" style="color:#DC2626;">Dhiifama, rakkoon uumameera. Interneetii kee mirkaneessi.</div>`;
+            chatContainer.innerHTML += `<div class="message bot-message" style="color:#DC2626;">Dhiifama, rakkoon uumameera. Interneetii kee ykn backend kee mirkaneessi.</div>`;
         }
     };
     
@@ -290,7 +293,7 @@ function renderTasks() {
 
     taskList.innerHTML = tasks.map(t => `
         <div class="feature-card" style="opacity: ${t.completed ? '0.6' : '1'}">
-            <span class="feature-icon" style="background:none;">${t.completed ? '✅' : '⬜'}</span>
+            <button onclick="toggleTask(${t.id})" style="background:none; border:none; font-size:20px; cursor:pointer;">${t.completed ? '✅' : '⬜'}</button>
             <div class="feature-text" style="text-decoration: ${t.completed ? 'line-through' : 'none'}">
                 <strong>${escapeHTML(t.text)}</strong>
             </div>
