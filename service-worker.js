@@ -1,4 +1,4 @@
-const CACHE_NAME = "keyraddiin-education-v16"; // v16 godheera
+const CACHE_NAME = "keyraddiin-education-v18"; // v18 godheera
 
 const APP_FILES = [
     "./",

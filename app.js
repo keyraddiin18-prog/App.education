@@ -7,6 +7,15 @@ const EXAM_CENTER_URL = "https://keyraddiin18-prog.github.io/KEYRADDIIN-EXAM-CEN
 const TELEGRAM_URL = "https://t.me/Keyraddiinmedia";
 const YOUTUBE_URL = "https://youtube.com/@keyraddiin-j2b";
 const WEBSITE_URL = "https://keyraddiin-media.onrender.com";
+
+// ==========================================
+// HAARAA: Linkii Haaraa (Premium, Results, Grade 9)
+// ==========================================
+const PREMIUM_URL = "https://keyraddiin18-prog.github.io/KEYRADDIIN-PREMIUM-REGISTRATION/";
+const MY_RESULTS_URL = "https://keyraddiin18-prog.github.io/KEYRADDIIN-EXAM-CENTER-SECOND-BRANCH/result.html";
+const BIO_9_URL = "https://keyraddiin18-prog.github.io/grade9-natural-science/";
+const MATH_9_URL = "https://keyraddiin18-prog.github.io/grade-9-maths-center/";
+
 const BACKEND_URL = "https://script.google.com/macros/s/AKfycbyWRY_YvoEzdvNABg-I9N6jadW5JqleX9c_Jj688sEnYsTUhIUfgBCUu8Qm9VobD04fYQ/exec"; 
 
 const grades = ["Grade 7", "Grade 8", "Grade 9", "Grade 10", "Grade 11", "Grade 12"];
@@ -84,6 +93,16 @@ function renderHome() {
         <div class="section">
             <div class="section-title"><h2>Quick Access</h2></div>
             <div class="feature-list">
+                <!-- HAARAA: Premium Registration -->
+                <button class="feature-card" onclick="showPremiumScreen()">
+                    <span class="feature-icon">💎</span>
+                    <div class="feature-text">
+                        <strong>Premium Registration</strong>
+                        <small>Unlock full access (50 Birr)</small>
+                    </div>
+                    <span>›</span>
+                </button>
+
                 <button class="feature-card" onclick="window.open('${EXAM_CENTER_URL}', '_blank')">
                     <span class="feature-icon">📝</span>
                     <div class="feature-text">
@@ -119,15 +138,50 @@ function showExamsScreen() {
                 </button>
             `).join('')}
         </div>
+
+        <!-- HAARAA: My Results -->
+        <div class="section-title" style="margin-top: 24px;"><h2>My Results</h2></div>
+        <a class="feature-card" href="${MY_RESULTS_URL}" target="_blank">
+            <span class="feature-icon">🏆</span>
+            <div class="feature-text">
+                <strong>View Exam Results</strong>
+                <small>Check your recent exam scores</small>
+            </div>
+            <span>›</span>
+        </a>
     `;
 }
 
 function showGradeExams(grade) {
+    // HAARAA: Kutaa 9 qofaaf Biology fi Maths qopheessuu
+    let grade9Extras = "";
+    if (grade === "Grade 9") {
+        grade9Extras = `
+            <a class="feature-card" href="${BIO_9_URL}" target="_blank">
+                <span class="feature-icon">🧬</span>
+                <div class="feature-text">
+                    <strong>BIOLOGY</strong>
+                    <small>Grade 9 Natural Science</small>
+                </div>
+                <span>›</span>
+            </a>
+            <a class="feature-card" href="${MATH_9_URL}" target="_blank">
+                <span class="feature-icon">📐</span>
+                <div class="feature-text">
+                    <strong>MATHS</strong>
+                    <small>Grade 9 Maths Center</small>
+                </div>
+                <span>›</span>
+            </a>
+        `;
+    }
+
     mainContent.innerHTML = `
         <button class="back-button" onclick="showExamsScreen()">← Back</button>
         <div class="section-title"><h2>${grade}</h2></div>
         
         <div class="feature-list">
+            <!-- Duraanii (Hundaaf) -->
             <a class="feature-card" href="${EXAM_CENTER_URL}" target="_blank">
                 <span class="feature-icon">📝</span>
                 <div class="feature-text">
@@ -144,6 +198,52 @@ function showGradeExams(grade) {
                 </div>
                 <span>›</span>
             </a>
+
+            <!-- HAARAA: Kutaa 9 yoo ta'e qofa asitti mul'ata -->
+            ${grade9Extras}
+        </div>
+    `;
+}
+
+// --- HAARAA: PREMIUM & SUPPORT SCREEN ---
+function showPremiumScreen() {
+    mainContent.innerHTML = `
+        <button class="back-button" onclick="document.querySelector('.nav-item[data-page=home]').click();">← Home</button>
+        <div class="section-title"><h2>Premium Registration</h2></div>
+        
+        <div class="welcome-banner" style="margin-bottom: 16px; padding: 20px; text-align: center;">
+            <h2 style="font-size: 24px;">💎 Fee: 50 Birr</h2>
+            <p style="font-size: 13px;">Unlock premium features and exclusive exams.</p>
+        </div>
+
+        <a class="feature-card" href="${PREMIUM_URL}" target="_blank" style="background: var(--primary-purple); color: white; border: none; margin-bottom: 24px; justify-content: center;">
+            <div class="feature-text" style="text-align: center;">
+                <strong style="color: white; font-size: 16px;">Go to Registration Page</strong>
+            </div>
+        </a>
+
+        <div class="section-title"><h2>Payment Details</h2></div>
+        <div class="feature-list">
+            <!-- M-Pesa Card -->
+            <div class="feature-card" style="flex-direction: column; align-items: flex-start; gap: 4px;">
+                <strong style="color: var(--success);">📱 M-Pesa</strong>
+                <small><b>Phone:</b> +251799574155</small>
+                <small><b>Account Name:</b> Abdalla Jibrail</small>
+            </div>
+            
+            <!-- E-Birr Card -->
+            <div class="feature-card" style="flex-direction: column; align-items: flex-start; gap: 4px;">
+                <strong style="color: var(--primary-purple);">💳 E-Birr</strong>
+                <small><b>Phone:</b> +251995555866</small>
+                <small><b>Account Name:</b> keyraddiin Abdella Jibraill</small>
+            </div>
+
+            <!-- Support Card -->
+            <div class="feature-card" style="flex-direction: column; align-items: flex-start; gap: 4px; border: 1px solid var(--error);">
+                <strong style="color: var(--error);">Need Help? 😫</strong>
+                <small>Contact us on Telegram for assistance:</small>
+                <a href="https://t.me/KeyR025" target="_blank" style="color: var(--primary-purple); font-weight: bold; margin-top: 4px; text-decoration: none;">@KeyR025</a>
+            </div>
         </div>
     `;
 }
@@ -305,7 +405,7 @@ function showSettingsScreen() {
             <div class="feature-card">
                 <div class="feature-text">
                     <strong>App Version</strong>
-                    <small>v3.0 Professional</small>
+                    <small>v3.1 Professional</small>
                 </div>
             </div>
             <button class="feature-card" onclick="clearAppData()" style="border-color: #DC2626; color: #DC2626;">
